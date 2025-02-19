@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Person } from "./types";
 
-const API_URL = "http://localhost:5000/personas";
+const API_URL = "http://localhost:3000/personas";
 
 export const getPersons = async (): Promise<Person[]> => {
   try {

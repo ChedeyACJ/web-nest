@@ -3,7 +3,7 @@
 CREATE DATABASE prueba;
 USE prueba;
 
-CREATE TABLE personas(
+CREATE TABLE persona(
     id INT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     edad INT NOT NULL
