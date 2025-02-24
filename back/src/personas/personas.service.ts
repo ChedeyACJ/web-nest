@@ -1,24 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Persona } from './personas.entity';
+import { InjectDataSource } from '@nestjs/typeorm';
+import { DataSource } from 'typeorm';
 
 @Injectable()
 export class PersonasService {
   constructor(
-    @InjectRepository(Persona)
-    private readonly personasRepository: Repository<Persona>,
+    @InjectDataSource() private readonly dataSource: DataSource,
   ) {}
 
-  async getPersons(): Promise<Persona[]> {
-    return await this.personasRepository.find();
+  async getPersons(): Promise<any[]> {
+    return await this.dataSource.query('SELECT * FROM persona');
   }
 
-  async getPersonsAZ(): Promise<Persona[]> {
-    return await this.personasRepository.find({ order: { nombre: 'ASC' } });
+  async getPersonsAZ(): Promise<any[]> {
+    return await this.dataSource.query('SELECT * FROM persona ORDER BY nombre ASC');
   }
 
-  async getPersonsZA(): Promise<Persona[]> {
-    return await this.personasRepository.find({ order: { nombre: 'DESC' } });
+  async getPersonsZA(): Promise<any[]> {
+    return await this.dataSource.query('SELECT * FROM persona ORDER BY nombre DESC');
   }
 }
