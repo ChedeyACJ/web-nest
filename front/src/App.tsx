@@ -2,19 +2,23 @@ import { useEffect, useState } from "react";
 import { getPersons, getPersonsAZ, getPersonsZA } from "./api";
 import { Person } from "./types";
 import "./style/App.css";
-
+console.log("El componente App se está montando...");
 const App = () => {
   const [persons, setPersons] = useState<Person[]>([]);
   const [sortOrder, setSortOrder] = useState("default");
   const [error, setError] = useState("");
 
   const fetchPersons = async (order: string) => {
+    console.log("fetchPersons ejecutado con orden:", order); // NUEVO LOG
+
     try {
       let data: Person[];
       if (order === "az") data = await getPersonsAZ();
       else if (order === "za") data = await getPersonsZA();
       else data = await getPersons();
 
+
+      console.log("Datos recibidos:", data);
       setPersons(data);
       setError(""); // Limpiar errores si la petición es exitosa
     } catch (error) {
