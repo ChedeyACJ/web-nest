@@ -32,37 +32,50 @@ const App = () => {
 
   return (
     <div>
-      <h1>Lista de Personas</h1>
-
-      <label>Ordenar por: </label>
-      <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-        <option value="default">Por defecto</option>
-        <option value="az">A-Z</option>
-        <option value="za">Z-A</option>
-      </select>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Edad</th>
-            </tr>
-          </thead>
-          <tbody>
-            {persons.map((person) => (
-              <tr key={person.id}>
-                <td>{person.nombre}</td>
-                <td>{person.edad}</td>
+        <h1 className="text-2xl font-bold text-blue-600">Lista de Personas</h1>
+        <label>Ordenar por: </label>
+        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+          <option value="default">Por defecto</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
+  
+        {error && <p style={{ color: "red" }}>{error}</p>}
+  
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {persons.map((person) => (
+                <tr key={person.id}>
+                  <td>{person.nombre}</td>
+                  <td>{person.edad}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+        <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
+          <h2 className="text-xl font-bold text-gray-800 mb-2">Juan Pérez</h2>
+          <p className="text-gray-600"><span className="font-semibold">Teléfono:</span> +34 600 123 456</p>
+          <p className="text-gray-600"><span className="font-semibold">Email:</span> juan.perez@email.com</p>
+          <p className="text-gray-600"><span className="font-semibold">Lugar:</span> Madrid</p>
+          <p className="text-gray-600"><span className="font-semibold">Puesto:</span> Técnico de Soporte</p>
+          <p className="text-gray-600"><span className="font-semibold">Departamento:</span> IT</p>
+        </div>
       </div>
     </div>
   );
+  
 };
 
 export default App;
