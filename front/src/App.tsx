@@ -62,6 +62,17 @@ const App = () => {
           </table>
         </div>
       </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+        {persons.map((person) => (
+          <div key={person.id} className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{person.nombre}</h2>
+            <p className="text-gray-600">
+              <span className="font-semibold">Edad:</span> {person.edad}
+            </p>
+          </div>
+        ))}
+      </div>
+
       <div className="w-full px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 border-2 border-red-500">
           <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
