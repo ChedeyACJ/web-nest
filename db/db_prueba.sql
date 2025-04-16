@@ -9,7 +9,7 @@ CREATE TABLE persona(
     edad INT NOT NULL
 );
 
-INSERT INTO personas(id, nombre, edad) VALUES
+INSERT INTO persona(id, nombre, edad) VALUES
     (1, 'Juan', 25),
     (2, 'Maria', 28),
     (3, 'Carlos', 30),
