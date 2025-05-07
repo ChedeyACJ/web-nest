@@ -101,6 +101,9 @@ const App = () => {
           </div>
         </div>
       </div>
+      <div className="bg-blue-500 text-white p-4 rounded-xl">
+        ¿Tailwind funciona?
+      </div>
     </div>
   );
   
