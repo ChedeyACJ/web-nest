@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPersons, getPersonsAZ, getPersonsZA } from "./api";
 import { Person } from "./types";
-import "./style/App.css";
+
 console.log("El componente App se está montando...");
 const App = () => {
   const [persons, setPersons] = useState<Person[]>([]);
