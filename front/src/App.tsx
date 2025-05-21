@@ -41,59 +41,34 @@ const App = () => {
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
         </select>
-  
-        {error && <p style={{ color: "red" }}>{error}</p>}
-  
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Edad</th>
+      </div>
+      <div>
+       <table className="table-auto w-full border-collapse border border-gray-300">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="negrita">Nombre</th>
+              <th className="negrita">Teléfono</th>
+              <th className="negrita">Email</th>
+              <th className="negrita">Lugar</th>
+              <th className="negrita">Puesto</th>
+              <th className="negrita">Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            {persons.map((person) => (
+              <tr key={person.id} className="hover:bg-gray-50">
+                <td className="border border-gray-300 px-4 py-2">{person.nombre}</td>
+                <td className="border border-gray-300 px-4 py-2">{person.telefono}</td>
+                <td className="border border-gray-300 px-4 py-2">{person.email}</td>
+                <td className="border border-gray-300 px-4 py-2">{person.lugar}</td>
+                <td className="border border-gray-300 px-4 py-2">{person.puesto}</td>
+                <td className="border border-gray-300 px-4 py-2">{person.departamento}</td>
               </tr>
-            </thead>
-            <tbody>
-              {persons.map((person) => (
-                <tr key={person.id}>
-                  <td>{person.nombre}</td>
-                  <td>{person.edad}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <div className="w-full px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 border-2 border-red-500">
-          <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">Juan Pérez</h2>
-            <p className="text-gray-600"><span className="font-semibold">Teléfono:</span> +34 600 123 456</p>
-            <p className="text-gray-600"><span className="font-semibold">Email:</span> juan.perez@email.com</p>
-            <p className="text-gray-600"><span className="font-semibold">Lugar:</span> Gran Canaria</p>
-            <p className="text-gray-600"><span className="font-semibold">Puesto:</span> Técnico de Soporte</p>
-            <p className="text-gray-600"><span className="font-semibold">Departamento:</span> IT</p>
-          </div>
-          <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">Antonio Luján</h2>
-            <p className="text-gray-600"><span className="font-semibold">Teléfono:</span> +34 700 789 012</p>
-            <p className="text-gray-600"><span className="font-semibold">Email:</span> antonio.lujan@email.com</p>
-            <p className="text-gray-600"><span className="font-semibold">Lugar:</span> Tenerife</p>
-            <p className="text-gray-600"><span className="font-semibold">Puesto:</span> Compras</p>
-            <p className="text-gray-600"><span className="font-semibold">Departamento:</span> Operaciones</p>
-          </div>
-          <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">Pepe Guerra</h2>
-            <p className="text-gray-600"><span className="font-semibold">Teléfono:</span> +34 800 345 678</p>
-            <p className="text-gray-600"><span className="font-semibold">Email:</span> pepe.guerra@email.com</p>
-            <p className="text-gray-600"><span className="font-semibold">Lugar:</span> Gran Canaria</p>
-            <p className="text-gray-600"><span className="font-semibold">Puesto:</span> Comercial</p>
-            <p className="text-gray-600"><span className="font-semibold">Departamento:</span> Comercial</p>
-          </div>
-        </div>
-      </div>
-      <div className="bg-blue-500 text-white p-4 rounded-xl">
-        ¿Tailwind funciona?
-      </div>
+
     </div>
   );
   
