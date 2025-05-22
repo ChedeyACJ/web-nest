@@ -42,9 +42,9 @@ const App = () => {
           <option value="za">Z-A</option>
         </select>
       </div>
-      <div className="">
+      <div className="contenedor">
         {persons.map((person) => (
-          <div key={person.id}>
+          <div key={person.id} className="tarjeta">
             <h2>{person.nombre}</h2>
             <p><span className="negrita">Teléfono:</span> {person.telefono}</p>
             <p><span className="negrita">Email:</span> {person.email}</p>
