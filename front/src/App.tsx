@@ -44,7 +44,7 @@ const App = () => {
       </div>
       <div className="">
         {persons.map((person) => (
-          <div key={person.id} className="bg-white shadow-md rounded-lg p-6">
+          <div key={person.id}>
             <h2>{person.nombre}</h2>
             <p><span className="negrita">Teléfono:</span> {person.telefono}</p>
             <p><span className="negrita">Email:</span> {person.email}</p>
