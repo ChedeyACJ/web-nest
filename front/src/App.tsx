@@ -42,33 +42,18 @@ const App = () => {
           <option value="za">Z-A</option>
         </select>
       </div>
-      <div>
-       <table className="table-auto w-full border-collapse border border-gray-300">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="negrita">Nombre</th>
-              <th className="negrita">Teléfono</th>
-              <th className="negrita">Email</th>
-              <th className="negrita">Lugar</th>
-              <th className="negrita">Puesto</th>
-              <th className="negrita">Departamento</th>
-            </tr>
-          </thead>
-          <tbody>
-            {persons.map((person) => (
-              <tr key={person.id} className="hover:bg-gray-50">
-                <td className="border border-gray-300 px-4 py-2">{person.nombre}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.telefono}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.email}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.lugar}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.puesto}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.departamento}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="">
+        {persons.map((person) => (
+          <div key={person.id} className="bg-white shadow-md rounded-lg p-6">
+            <h2>{person.nombre}</h2>
+            <p><span className="negrita">Teléfono:</span> {person.telefono}</p>
+            <p><span className="negrita">Email:</span> {person.email}</p>
+            <p><span className="negrita">Lugar:</span> {person.lugar}</p>
+            <p><span className="negrita">Puesto:</span> {person.puesto}</p>
+            <p><span className="negrita">Departamento:</span> {person.departamento}</p>
+          </div>
+        ))}
       </div>
-
     </div>
   );
   
