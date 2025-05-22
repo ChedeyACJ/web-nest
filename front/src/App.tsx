@@ -45,7 +45,7 @@ const App = () => {
       <div className="contenedor">
         {persons.map((person) => (
           <div key={person.id} className="tarjeta">
-            <h2>{person.nombre}</h2>
+            <h1>{person.nombre}</h1>
             <p><span className="negrita">Teléfono:</span> {person.telefono}</p>
             <p><span className="negrita">Email:</span> {person.email}</p>
             <p><span className="negrita">Lugar:</span> {person.lugar}</p>
