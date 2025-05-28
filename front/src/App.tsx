@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPersons, getPersonsAZ, getPersonsZA, getPersonsDepComercial, getPersonsLugarGranCanaria, getPersonsComercialesGranCanaria } from "./api";
-import { Person } from "./types";
+
 
 
 const App = () => {
