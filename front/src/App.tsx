@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
-import { getPersons, getPersonsAZ, getPersonsZA } from "./api";
+import { getPersons, getPersonsAZ, getPersonsZA, getPersonsDepComercial, getPersonsLugarGranCanaria, getPersonsComercialesGranCanaria } from "./api";
 import { Person } from "./types";
 
 
-console.log("El componente App se está montando...");
 const App = () => {
   const [persons, setPersons] = useState<Person[]>([]);
   const [sortOrder, setSortOrder] = useState("default");
   const [error, setError] = useState("");
 
   const fetchPersons = async (order: string) => {
-    console.log("fetchPersons ejecutado con orden:", order); // NUEVO LOG
 
     try {
       let data: Person[];
       if (order === "az") data = await getPersonsAZ();
       else if (order === "za") data = await getPersonsZA();
+      else if (order === "DepComercial") data = await getPersonsDepComercial();
+      else if (order === "LugarGranCanaria") data = await getPersonsLugarGranCanaria();
+      else if (order === "ComecialesGranCanaria") data = await getPersonsComercialesGranCanaria();
       else data = await getPersons();
 
 
-      console.log("Datos recibidos:", data);
       setPersons(data);
       setError(""); // Limpiar errores si la petición es exitosa
     } catch (error) {
@@ -40,6 +40,9 @@ const App = () => {
           <option value="default">Por defecto</option>
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
+          <option value="DepComercial">Departamento Comercial</option>
+          <option value="LugarGranCanaria">Gran Canaria</option>
+          <option value="ComecialesGranCanaria">Comerciales de Gran Canaria</option>
         </select>
       </div>
       <div className="contenedor">

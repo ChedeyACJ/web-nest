@@ -20,3 +20,21 @@ export const getPersonsZA = async () => {
   const response = await axios.get(`${API_URL}/za`);
   return response.data;
 };
+
+export const getPersonsDepComercial = async () => {
+  const response = await axios.get(`${API_URL}/DepComercial`);
+  return response.data;
+  
+};
+
+export const getPersonsLugarGranCanaria = async () => {
+  const response = await axios.get(`${API_URL}/LugarGranCanaria`);
+  return response.data;
+  
+};
+
+export const getPersonsComercialesGranCanaria = async () => {
+  const response = await axios.get(`${API_URL}/ComecialesGranCanaria`);
+  return response.data;
+  
+};

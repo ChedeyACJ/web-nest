@@ -1,11 +1,11 @@
 .contenedor {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales que se reparten el ancho */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   max-width: 100vw;
   padding: 1.5rem;
   box-sizing: border-box;
-  justify-content: center; /* opcional, si quieres centrar todo el grid */
+  justify-content: center;
 }
 
 .tarjeta {
@@ -14,9 +14,9 @@
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  width: 100%; /* para que ocupe todo el ancho de su columna */
-  max-width: 600px; /* tamaño fijo máximo para cada tarjeta */
-  margin: 0 auto; /* para centrar la tarjeta dentro de la columna si hay espacio extra */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .negrita {

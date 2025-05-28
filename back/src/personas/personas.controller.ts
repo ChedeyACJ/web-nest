@@ -19,4 +19,20 @@ export class PersonasController {
   async getPersonsZA(): Promise<any[]> {  
     return this.personasService.getPersonsZA();
   }
+
+  @Get('DepComercial')
+  async getPersonsDepComercial(): Promise<any[]> {  
+    return this.personasService.getPersonsDepComercial();
+  }
+
+  @Get('LugarGranCanaria')
+  async getPersonsLugarGranCanaria(): Promise<any[]> {  
+    return this.personasService.getPersonsLugarGranCanaria();
+  }
+
+   @Get('ComecialesGranCanaria')
+  async getPersonsComercialesGranCanaria(): Promise<any[]> {  
+    return this.personasService.getPersonsComercialesGranCanaria();
+  }
+
 }

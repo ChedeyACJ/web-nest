@@ -19,4 +19,17 @@ export class PersonasService {
   async getPersonsZA(): Promise<any[]> {
     return await this.dataSource.query('SELECT * FROM persona ORDER BY nombre DESC');
   }
+
+  async getPersonsDepComercial(): Promise<any[]> {
+    return await this.dataSource.query('SELECT * FROM persona WHERE departamento="Comercial"');
+  }
+
+  async getPersonsLugarGranCanaria(): Promise<any[]> {
+    return await this.dataSource.query('SELECT * FROM persona WHERE lugar="Gran Canaria"');
+  }
+
+  async getPersonsComercialesGranCanaria(): Promise<any[]> {
+    return await this.dataSource.query('SELECT * FROM persona WHERE lugar="Gran Canaria" AND departamento="Comercial"');
+  }
+
 }
