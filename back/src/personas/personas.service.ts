@@ -7,8 +7,9 @@ export class PersonasService implements OnModuleInit {
   private personas: any[] = [];
 
   constructor(
-    private readonly dataSource: DataSource,
-  ) {}
+  @InjectDataSource() private readonly dataSource: DataSource,
+) {}
+
 
   // Se llama automáticamente al iniciar el servicio
   async onModuleInit() {
