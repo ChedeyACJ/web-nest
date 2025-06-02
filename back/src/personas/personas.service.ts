@@ -1,35 +1,47 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 
 @Injectable()
-export class PersonasService {
+export class PersonasService implements OnModuleInit {
+  private personas: any[] = [];
+
   constructor(
-    @InjectDataSource() private readonly dataSource: DataSource,
+    private readonly dataSource: DataSource,
   ) {}
 
-  async getPersons(): Promise<any[]> {
-    return await this.dataSource.query('SELECT * FROM persona');
+  // Se llama automáticamente al iniciar el servicio
+  async onModuleInit() {
+    await this.cargarPersonas();
   }
 
-  async getPersonsAZ(): Promise<any[]> {
-    return await this.dataSource.query('SELECT * FROM persona ORDER BY nombre ASC');
+  private async cargarPersonas() {
+    this.personas = await this.dataSource.query('SELECT * FROM persona');
   }
 
-  async getPersonsZA(): Promise<any[]> {
-    return await this.dataSource.query('SELECT * FROM persona ORDER BY nombre DESC');
+  getPersons(): any[] {
+    return this.personas;
   }
 
-  async getPersonsDepComercial(): Promise<any[]> {
-    return await this.dataSource.query('SELECT * FROM persona WHERE departamento="Comercial"');
+  getPersonsAZ(): any[] {
+    return [...this.personas].sort((a, b) => a.nombre.localeCompare(b.nombre));
   }
 
-  async getPersonsLugarGranCanaria(): Promise<any[]> {
-    return await this.dataSource.query('SELECT * FROM persona WHERE lugar="Gran Canaria"');
+  getPersonsZA(): any[] {
+    return [...this.personas].sort((a, b) => b.nombre.localeCompare(a.nombre));
   }
 
-  async getPersonsComercialesGranCanaria(): Promise<any[]> {
-    return await this.dataSource.query('SELECT * FROM persona WHERE lugar="Gran Canaria" AND departamento="Comercial"');
+  getPersonsDepComercial(): any[] {
+    return this.personas.filter(persona => persona.departamento === 'Comercial');
   }
 
+  getPersonsLugarGranCanaria(): any[] {
+    return this.personas.filter(persona => persona.lugar === 'Gran Canaria');
+  }
+
+  getPersonsComercialesGranCanaria(): any[] {
+    return this.personas.filter(persona =>
+      persona.lugar === 'Gran Canaria' && persona.departamento === 'Comercial'
+    );
+  }
 }
