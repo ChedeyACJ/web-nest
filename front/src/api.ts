@@ -1,8 +1,4 @@
-
-
-
 import axios from "axios";
-import { Person } from "./types";
 
 const API_URL = "http://localhost:3000/personas";
 
