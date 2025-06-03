@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPersons, getPersonsAZ, getPersonsZA, getPersonsDepComercial, getPersonsLugarGranCanaria, getPersonsComercialesGranCanaria } from "./api";
+import * as api from "./api";
 
 
 
@@ -12,12 +12,12 @@ const App = () => {
 
     try {
       let data: Person[];
-      if (order === "az") data = await getPersonsAZ();
-      else if (order === "za") data = await getPersonsZA();
-      else if (order === "DepComercial") data = await getPersonsDepComercial();
-      else if (order === "LugarGranCanaria") data = await getPersonsLugarGranCanaria();
-      else if (order === "ComecialesGranCanaria") data = await getPersonsComercialesGranCanaria();
-      else data = await getPersons();
+      if (order === "az") data = await api.getPersonsAZ();
+      else if (order === "za") data = await api.getPersonsZA();
+      else if (order === "DepComercial") data = await api.getPersonsDepComercial();
+      else if (order === "LugarGranCanaria") data = await api.getPersonsLugarGranCanaria();
+      else if (order === "ComecialesGranCanaria") data = await api.getPersonsComercialesGranCanaria();
+      else data = await api.getPersons();
 
 
       setPersons(data);
