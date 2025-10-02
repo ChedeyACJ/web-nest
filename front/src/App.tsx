@@ -114,7 +114,7 @@ const App = () => {
         <option value="za">Z-A</option>
       </select>
 
-      <label>Filtrar por departamento: </label>
+      <label>Departamento: </label>
       <select value={departamento} onChange={(e) => setDepartamento(e.target.value)}>
         <option value="">Todos</option>
         {departamentosUnicos.map(dep => (
@@ -122,7 +122,7 @@ const App = () => {
         ))}
       </select>
 
-      <label>Filtrar por lugar: </label>
+      <label>Lugar: </label>
       <select value={lugar} onChange={(e) => setLugar(e.target.value)}>
         <option value="">Todos</option>
         {lugaresUnicos.map(lug => (
