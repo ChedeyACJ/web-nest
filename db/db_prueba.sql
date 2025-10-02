@@ -9,7 +9,7 @@ CREATE TABLE persona(
   telefono VARCHAR(20),
   email VARCHAR(100),
   lugar VARCHAR(50),
-  puesto VARCHAR(50),
+  area VARCHAR(50),
   departamento VARCHAR(50)
 );
 

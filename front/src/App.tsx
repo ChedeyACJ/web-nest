@@ -144,7 +144,7 @@ const App = () => {
               <p><span className="negrita">Teléfono:</span> {person.telefono}</p>
               <p><span className="negrita">Email:</span> {person.email}</p>
               <p><span className="negrita">Lugar:</span> {person.lugar}</p>
-              <p><span className="negrita">Área:</span> {person.puesto}</p>
+              <p><span className="negrita">Área:</span> {person.area}</p>
               <p><span className="negrita">Departamento:</span> {person.departamento}</p>
             </div>
           ))
